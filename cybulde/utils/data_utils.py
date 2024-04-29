@@ -1,11 +1,6 @@
 from shutil import rmtree
-from typing import Optional
 
-import dask.dataframe as dd
-import psutil
-import pandas as pd
-
-#from cybulde.utils.gcp_utils import access_secret_version
+# from cybulde.utils.gcp_utils import access_secret_version
 from cybulde.utils.utils import run_shell_command
 
 
@@ -39,8 +34,8 @@ def get_cmd_to_get_raw_data(
     str
         shell command to download the raw data from dvc store
     """
-    #without_https = dvc_remote_repo.replace("https://", "")
-    #dvc_remote_repo = f"https://{github_user_name}:{github_access_token}@{without_https}"
+    # without_https = dvc_remote_repo.replace("https://", "")
+    # dvc_remote_repo = f"https://{github_user_name}:{github_access_token}@{without_https}"
     command = f"dvc get {dvc_remote_repo} {dvc_data_folder} --rev {version} -o {data_local_save_dir}"
     return command
 
@@ -53,7 +48,7 @@ def get_raw_data_with_version(
     github_user_name: str,
     github_access_token: str,
 ) -> None:
-    rmtree(data_local_save_dir, ignore_errors=True) # for removeing any old version exist of the dataset
+    rmtree(data_local_save_dir, ignore_errors=True)  # for removeing any old version exist of the dataset
     command = get_cmd_to_get_raw_data(
         version, data_local_save_dir, dvc_remote_repo, dvc_data_folder, github_user_name, github_access_token
     )

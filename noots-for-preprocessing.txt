@@ -1,0 +1,10 @@
+* remove stop words
+* lowercase all letters
+* remove urls from sentences
+* remove punc
+* remove non letter characters
+* remove new line characters
+* remove non ascii characters
+* remove reference to an account info (like tagging)
+* remove retweet references (like RT)
+* spell correction
